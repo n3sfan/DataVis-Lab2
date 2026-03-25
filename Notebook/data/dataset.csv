@@ -1,9 +1,79 @@
 Country Name,Country Code,Series Name,Series Code,2001 [YR2001],2002 [YR2002],2003 [YR2003],2004 [YR2004],2005 [YR2005],2006 [YR2006],2007 [YR2007],2008 [YR2008],2009 [YR2009],2010 [YR2010],2011 [YR2011],2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022],2023 [YR2023],2024 [YR2024],2025 [YR2025]
-Viet Nam,VNM,"School enrollment, tertiary (% gross)",SE.TER.ENRR,9.30103015899658,9.55722999572754,9.91792964935303,..,15.8760204315185,16.8052501678467,18.9504508972168,20.0552005767822,21.5007190704346,23.9250975429329,25.8674734818525,25.7487091222031,25.6249412769592,31.3306389293887,29.7250797402999,29.0811980839409,25.9526307046456,..,30.2241191864014,..,41.9554971195048,44.7536854027422,32.8415128147815,37.5923642016718,..
 Viet Nam,VNM,"Unemployment, total (% of total labor force) (modeled ILO estimate)",SL.UEM.TOTL.ZS,2.76,2.12,2.25,2.14,2.078,2.046,2.026,1.889,1.737,1.114,0.999,1.027,1.316,1.256,1.848,1.848,1.874,1.161,1.681,2.103,2.383,1.57,1.645,1.602,1.523
-Viet Nam,VNM,Employment in services (% of total employment) (modeled ILO estimate),SL.SRV.EMPL.ZS,23.5421050952189,24.7479271755786,25.4465878579192,26.3436096365078,28.0646122914701,29.900225117951,30.3283222550968,30.4091345807313,30.5994639675695,29.6140897652962,30.4100306100531,31.4432598551777,32.0033506681625,32.2181324550806,33.2378777281005,33.37288761068,34.0677198752187,35.5711648258268,35.8756556249091,36.3177224262355,37.8460942595862,35.8550348764279,39.5494160842561,39.8063485099891,40.1305077279733
+Viet Nam,VNM,"School enrollment, tertiary (% gross)",SE.TER.ENRR,9.30103015899658,9.55722999572754,9.91792964935303,..,15.8760204315185,16.8052501678467,18.9504508972168,20.0552005767822,21.5007190704346,23.9250975429329,25.8674734818525,25.7487091222031,25.6249412769592,31.3306389293887,29.7250797402999,29.0811980839409,25.9526307046456,..,30.2241191864014,..,41.9554971195048,44.7536854027422,32.8415128147815,37.5923642016718,..
+United Kingdom,GBR,"Unemployment, total (% of total labor force) (modeled ILO estimate)",SL.UEM.TOTL.ZS,4.696,5.037,4.807,4.594,4.884,5.472,5.399,5.748,7.683,7.973,8.195,8.279,7.752,6.398,5.552,4.909,4.501,4.145,3.657,4.472,4.864,3.768,4.025,4.361,4.746
+United Kingdom,GBR,"School enrollment, tertiary (% gross)",SE.TER.ENRR,57.4872894287109,61.128231048584,61.4559783935547,59.4526481628418,59.2745018005371,59.190731048584,58.8450889587402,57.430980682373,59.1011390686035,59.8467292785645,59.3426704406738,59.1681709289551,56.8150482177734,56.5670890808105,56.4859008789062,58.110481262207,59.6335182189941,61.1251182556152,65.4840774536133,69.3701629638672,76.7174911499023,79.7250823974609,80.4987716674805,..,..
+United States,USA,"Unemployment, total (% of total labor force) (modeled ILO estimate)",SL.UEM.TOTL.ZS,4.731,5.783,5.989,5.529,5.084,4.623,4.622,5.784,9.254,9.633,8.949,8.069,7.375,6.168,5.28,4.869,4.355,3.896,3.669,8.055,5.349,3.65,3.638,4.022,4.198
+United States,USA,"School enrollment, tertiary (% gross)",SE.TER.ENRR,..,..,..,..,80.6348266601562,..,..,..,..,..,..,..,88.7264175415039,88.6268692016602,88.8894119262695,88.8350524902344,88.1673889160156,88.2991790771484,87.8887100219727,87.5676574707031,84.8550872802734,79.361930847168,..,..,..
+Thailand,THA,"Unemployment, total (% of total labor force) (modeled ILO estimate)",SL.UEM.TOTL.ZS,2.6,1.82,1.54,1.51,1.35,1.22,1.18,1.18,1.49,0.622,0.66,0.58,0.249,0.576,0.597,0.688,0.83,0.765,0.716,1.099,1.215,0.94,0.733,0.781,0.781
+Thailand,THA,"School enrollment, tertiary (% gross)",SE.TER.ENRR,38.9344787597656,40.1257095336914,41.1551513671875,42.1445999145508,44.3367195129395,44.1761817932129,47.55419921875,46.3521308898926,46.2023391723633,46.3783774485726,52.7332765596589,50.7403100613359,49.6879408184566,49.9091820021394,45.713134717198,49.3227291503798,47.427491541895,46.1667791174286,44.9880040072053,42.5900878816865,43.4690405127808,43.29484965617,45.4407811172674,44.9845744019321,49.0776442074561
+China,CHN,"Unemployment, total (% of total labor force) (modeled ILO estimate)",SL.UEM.TOTL.ZS,3.8,4.24,4.58,4.49,4.52,4.43,4.35,4.59,4.72,4.53,4.55,4.58,4.6,4.63,4.65,4.56,4.47,4.31,4.56,5,4.55,4.98,4.67,4.59,4.615
+China,CHN,"School enrollment, tertiary (% gross)",SE.TER.ENRR,9.28069019317627,11.8050804138184,14.513970375061,16.9004402160644,18.6565208435059,20.5667705535889,21.4715595245361,21.8667392730713,23.2886295318604,25.2883066277701,26.7875039907406,29.3081906903292,32.7191603158803,43.7110051016854,47.1192619330726,49.309077375597,51.0678812273407,53.3987984572814,56.6050917923292,61.6124675996947,66.8186077597542,71.5799465086024,74.5933014618366,76.8757843123403,..
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Data from database: World Development Indicators,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Last Updated: 02/24/2026,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Code,License Type,Indicator Name,Long definition,Source,Topic,Dataset,Unit of measure,Periodicity,Reference period,Aggregation method,Statistical concept and methodology,Development relevance,Limitations and exceptions,Other notes,License URL
+SL.UEM.TOTL.ZS,CC BY-4.0,"Unemployment, total (% of total labor force) (modeled ILO estimate)",Unemployment refers to the share of the labor force that is without work but available for and seeking employment.,"ILO Modelled Estimates database (ILOEST), International Labour Organization (ILO), uri: https://ilostat.ilo.org/data/bulk/, publisher: ILOSTAT, type: external database, date accessed: January 17, 2026",Social Protection & Labor: Unemployment,WB_WDI,% of total labor force,Annual,1991-2024,Weighted average,"Methodology: The unemployment rate is calculated by expressing the number of unemployed persons as a percentage of the total number of persons in the labor force. The labor force (formerly known as the economically active population) is the sum of the number of persons employed and the number of persons unemployed. 
+
+
+
+
+
+The series is part of the "ILO modeled estimates database," including nationally reported observations and imputed data for countries with missing data, primarily to capture regional and global trends with consistent country coverage. Country-reported microdata is based mainly on nationally representative labor force surveys, with other sources (e.g., household surveys and population censuses) considering differences in the data source, the scope of coverage, methodology, and other country-specific factors. Country analysis requires caution where limited nationally reported data are available. A series of models are also applied to impute missing observations and make projections. However, imputed observations are not based on national data, are subject to high uncertainty, and should not be used for country comparisons or rankings. For more information: https://ilostat.ilo.org/resources/concepts-and-definitions/ilo-modelled-estimates/
+
+Statistical concept(s): The unemployed comprise all persons of working age who were: a) without work during the reference period, i.e. were not in paid employment or self-employment; b) currently available for work, i.e. were available for paid employment or self-employment during the reference period; and c) seeking work, i.e. had taken specific steps in a specified recent period to seek paid employment or self-employment. Future starters, that is, persons who did not look for work but have a future labor market stake (made arrangements for a future job start) are also counted as unemployed, as are participants in skills training or retraining schemes within employment promotion programs, who on that basis, were “not in employment”, not “currently available” and did not “seek employment” because they had a job offer to start within a short subsequent period generally not greater than three months. The unemployed also include persons “not in employment” who carried out activities to migrate abroad in order to work for pay or profit but who were still waiting for the opportunity to leave.
+
+
+
+
+
+Employment comprises all persons of working age who during a specified brief period, such as one week or one day, were in the following categories: a) paid employment (whether at work or with a job but not at work); or b) self-employment (whether at work or with an enterprise but not at work).
+
+
+The working-age population is the population above the legal working age, but for statistical purposes it comprises all persons above a specified minimum age threshold for which an inquiry on economic activity is made. To promote international comparability, the working-age population is often defined as all persons aged 15 and older, but this may vary from country to country based on national laws and practices (some countries also apply an upper age limit).","The unemployment rate is a useful measure of the underutilization of the labor supply. It reflects the inability of an economy to generate employment for those persons who want to work but are not doing so, even though they are available for employment and actively seeking work. It is thus seen as an indicator of the efficiency and effectiveness of an economy to absorb its labor force and of the performance of the labor market.
+
+
+
+
+
+Given its usefulness in conveying valuable information on a country’s labor market situation and the fact that it is widely recognized as a headline labor market indicator, it was included as one of the indicators to measure progress towards the achievement of the Sustainable Development Goals (SDG), under Goal 8 (Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all).","While the unemployment rate may be considered the most informative labour market indicator, reflecting the general performance of the labour market and the economy as a whole, it should not be interpreted as a measure of economic hardship or of well-being. When based on the internationally-recommended standards, the unemployment rate simply reflects the proportion of the labour force that does not have a job but is available and actively looking for work. It says nothing about the economic resources of unemployed workers or their family members. Its use should, therefore, be limited to serving as a measurement of the utilization of labour and an indication of the failure to find work. Other measures, including income-related indicators, would be needed to evaluate economic hardship. An additional criticism of the aggregate unemployment measure is that it masks information on the composition of the jobless population and therefore misses out on the particularities of the education level, ethnic origin, socio-economic background, work experience, etc. of the unemployed. Moreover, the unemployment rate says nothing about the type of unemployment – whether it is cyclical and short-term or structural and long-term – which is a critical issue for policy makers in the development of their policy responses, especially given that structural unemployment cannot be addressed by boosting market demand only.",National estimates are also available in the WDI database. Caution should be used when comparing ILO estimates with national estimates.,https://datacatalog.worldbank.org/public-licenses#cc-by
+SE.TER.ENRR,CC BY-4.0,"School enrollment, tertiary (% gross)","Gross enrollment ratio is the ratio of total enrollment, regardless of age, to the population of the age group that officially corresponds to the level of education shown. Tertiary education, whether or not to an advanced research qualification, normally requires, as a minimum condition of admission, the successful completion of education at the secondary level.","Data API, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources, note: The data are obtained through the UIS API.  Detailed documentation is available at: https://api.uis.unesco.org/api/public/documentation/, publisher: UNESCO Institute for Statistics (UIS), type: Bulk file (csv), date accessed: 2025-09-22, date published: 2025-09",Education: Participation,WB_WDI,% of population in the 5-year age group immediately following upper secondary education,Annual,1970-2024,Weighted average,"Methodology: Gross enrollment ratio for tertiary school is calculated by dividing the number of students enrolled in tertiary education regardless of age by the population of the age group which officially corresponds to tertiary education, and multiplying by 100. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Data on education are collected by the UNESCO Institute for Statistics from official responses to its annual education survey. All the data are mapped to the International Standard Classification of Education (ISCED) to ensure the comparability of education programs at the international level. The current version was formally adopted by UNESCO Member States in 2011. Population data are drawn from the United Nations Population Division. Using a single source for population data standardizes definitions, estimations, and interpolation methods, ensuring a consistent methodology across countries and minimizing potential enumeration problems in national censuses.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The reference years reflect the school year for which the data are presented. In some countries the school year spans two calendar years (for example, from September 2010 to June 2011); in these cases the reference year refers to the year in which the school year ended (2011 in the example).
+Statistical concept(s): Gross enrollment ratios indicate the capacity of each level of the education system, but a high ratio may reflect a substantial number of overage children enrolled in each grade because of repetition or late entry rather than a successful education system.","Sustainable Development Goal (SDG) target 4.3 is committed to providing equitable access to affordable and high-quality technical, vocational, and tertiary education, including university, for both women and men. This particular indicator reflects the overall capacity of the educational infrastructure to support enrolment within a specified age demographic at the tertiary level.","Enrollment indicators are based on annual school surveys, but do not necessarily reflect actual attendance or dropout rates during the year. Also, the length of education differs across countries and can influence enrollment rates, although the International Standard Classification of Education (ISCED) tries to minimize the difference. For example, a shorter duration for primary education tends to increase the rate; a longer one to decrease it (in part because older children are more at risk of dropping out). Moreover, age at enrollment may be inaccurately estimated or misstated, especially in communities where registration of births is not strictly enforced.",,https://datacatalog.worldbank.org/public-licenses#cc-by
