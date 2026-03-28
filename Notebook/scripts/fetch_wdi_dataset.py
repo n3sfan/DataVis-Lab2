@@ -1,6 +1,8 @@
 import pandas as pd
 import requests
 from pathlib import Path
+from decimal import Decimal, ROUND_HALF_UP
+from typing import TypedDict
 
 # ============================================================
 # 1. GLOBAL CONFIG – thêm/sửa/xóa chỉ số TẠI ĐÂY
@@ -10,23 +12,23 @@ COUNTRIES = [
     "DEU", "FRA", "GBR", "SWE", "USA", "CAN", "BRA", "MEX", "ZAF", "NGA",
 ]
 
-YEARS = list(range(2000, 2025))          # 2000 – 2024 (25 năm)
+YEARS = list(range(2000, 2024))          # 2000 – 2023 (recent years, <= 2023)
 
 # INDICATOR_GROUPS: concept_name → [primary_code, fallback1, fallback2, ...]
 # Chương trình sẽ dùng code đầu tiên có dữ liệu; ghi nhận fallback ra file audit.
 INDICATOR_GROUPS = {
     # Giáo dục
     "School enrollment, tertiary (% gross)":                     ["SE.TER.ENRR"],
-    # Nguồn nhân lực
-    "Unemployment, total (% of total labor force) (modeled ILO estimate)": ["SL.UEM.TOTL.ZS"],
-    "Employment in services (% of total employment) (modeled ILO estimate)": ["SL.SRV.EMPL.ZS"],
-    # Nữ giới trong chính trị
-    "Proportion of seats held by women in national parliaments (%)":  ["SG.GEN.PARL.ZS"],
-    # Đầu tư giáo dục & y tế
-    "Government expenditure on education, total (% of GDP)":          ["SE.XPD.TOTL.GD.ZS", "SE.XPD.TOTL.GB.ZS"],
-    "Domestic general government health expenditure (% of general government expenditure)": ["SH.XPD.GHED.GE.ZS", "SH.XPD.GHED.GD.ZS", "SH.XPD.CHEX.GD.ZS"],
-    # Kinh tế
-    "GDP per capita (current US$)":                              ["NY.GDP.PCAP.CD"],
+    # # # Nguồn nhân lực
+    # "Unemployment, total (% of total labor force) (modeled ILO estimate)": ["SL.UEM.TOTL.ZS"],
+    # "Employment in services (% of total employment) (modeled ILO estimate)": ["SL.SRV.EMPL.ZS"],
+    # # Nữ giới trong chính trị
+    # "Proportion of seats held by women in national parliaments (%)":  ["SG.GEN.PARL.ZS"],
+    # # Đầu tư giáo dục & y tế
+    # "Government expenditure on education, total (% of GDP)":          ["SE.XPD.TOTL.GD.ZS", "SE.XPD.TOTL.GB.ZS"],
+    # "Domestic general government health expenditure (% of general government expenditure)": ["SH.XPD.GHED.GE.ZS", "SH.XPD.GHED.GD.ZS", "SH.XPD.CHEX.GD.ZS"],
+    # # Kinh tế
+    # "GDP per capita (current US$)":                              ["NY.GDP.PCAP.CD"],
 }
 # ============================================================
 
@@ -147,10 +149,17 @@ def build_dataset():
     return out_df, fallback_df
 
 
+class ValidationRow(TypedDict):
+    check: str
+    value: int | float
+    expected: int | str
+    status: str
+
+
 def build_validation_report(out_df, fallback_df):
     """Kiểm tra shape và chất lượng dữ liệu."""
     year_cols = [f"{y} [YR{y}]" for y in YEARS]
-    rows = []
+    rows: list[ValidationRow] = []
 
     # Shape
     rows.append({"check": "row_count",         "value": len(out_df),                   "expected": 20 * len(INDICATOR_GROUPS), "status": ""})
@@ -164,7 +173,7 @@ def build_validation_report(out_df, fallback_df):
     for code in out_df["Series Code"].unique():
         sub = out_df[out_df["Series Code"] == code][year_cols].apply(pd.to_numeric, errors="coerce")
         pct = sub.isna().mean().mean() * 100
-        rows.append({"check": f"missing_pct::{code}", "value": round(pct, 2), "expected": "informational", "status": ""})
+        rows.append({"check": f"missing_pct::{code}", "value": float(Decimal(str(pct)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)), "expected": "informational", "status": ""})
 
     for r in rows:
         r["status"] = "ok" if (isinstance(r["expected"], int) and r["value"] == r["expected"]) else ("warn" if r["expected"] != "informational" else "info")
@@ -178,27 +187,115 @@ def build_validation_report(out_df, fallback_df):
     return pd.DataFrame(rows)
 
 
+def evaluate_missing(out_df):
+    """
+    Đánh giá tỷ lệ giá trị thiếu trong dataset đã tải.
+    Xuất báo cáo chi tiết theo từng chỉ số và theo từng năm.
+
+    Phù hợp với cell 1.4 "Tỷ lệ giá trị thiếu" trong Notebook.
+    """
+    year_cols = [f"{y} [YR{y}]" for y in YEARS]
+    df_years = out_df[year_cols].apply(pd.to_numeric, errors="coerce")
+
+    # --- Toàn cục ---
+    total_cells   = df_years.size
+    total_missing = int(df_years.isnull().sum().sum())
+    overall_pct   = float(Decimal(str(total_missing / total_cells * 100)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
+
+    print("=" * 65)
+    print("BÁO CÁO TỶ LỆ GIÁ TRỊ THIẾU – WDI Dataset")
+    print("=" * 65)
+    print(f"  Tổng số ô dữ liệu : {total_cells}")
+    print(f"  Số ô bị thiếu     : {total_missing}")
+    print(f"  Tỷ lệ thiếu       : {overall_pct}%")
+    print()
+
+    # --- Theo từng chỉ số (Series Code) ---
+    series_rows = []
+    print("Theo từng chỉ số:")
+    print("-" * 65)
+    for code, grp in out_df.groupby("Series Code"):
+        series_name = grp["Series Name"].iloc[0]
+        vals      = grp[year_cols].apply(pd.to_numeric, errors="coerce")
+        n_missing = int(vals.isnull().sum().sum())
+        n_total   = vals.size
+        pct       = float(Decimal(str(n_missing / n_total * 100)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
+        bar_len   = int(pct // 2)
+        status    = "WARN" if pct > 40 else "OK"
+        print(f"  [{code}] {series_name}")
+        print(f"    Thiếu: {n_missing}/{n_total} ô ({pct}%)  {'#' * bar_len}")
+        series_rows.append({
+            "Series Code":        code,
+            "Series Name":        series_name,
+            "Missing Count":       n_missing,
+            "Total Cells":         n_total,
+            "Missing %":           pct,
+            "Status":              status,
+        })
+        print()
+    print()
+
+    # --- Theo từng năm (cột) ---
+    missing_per_col = df_years.isnull().sum()
+    pct_per_col     = (missing_per_col / len(df_years) * 100).round(2)
+
+    print("Theo từng năm (cột):")
+    print("-" * 65)
+    year_rows = []
+    for col, n, p in zip(year_cols, missing_per_col, pct_per_col):
+        bar_len = int(p // 2)
+        status  = "WARN" if p > 4 else "OK"
+        print(f"  {col} | Thiếu: {n}/{len(df_years)} chỉ số ({p}%)  {'#' * bar_len}")
+        year_rows.append({
+            "Year Column":     col,
+            "Missing Count":   int(n),
+            "Total Countries": len(df_years),
+            "Missing %":       float(Decimal(str(float(p))).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)),
+            "Status":          status,
+        })
+
+    print()
+    print("=" * 65)
+    print("Ghi chú: STATUS = WARN nếu tỷ lệ thiếu > 4%")
+    print("=" * 65)
+
+    # Trả về DataFrame để lưu ra CSV nếu cần
+    return (
+        pd.DataFrame(series_rows),
+        pd.DataFrame(year_rows),
+    )
+
+
 def main():
     project_root = Path(__file__).resolve().parents[1]
-    data_dir = project_root / "Notebook" / "data"
+    data_dir = project_root / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
 
-    print("Bat dau lay du lieu WDI cho 20 quoc gia, 7 chi so, 2000-2024...")
+    print("Bat dau lay du lieu WDI cho 20 quoc gia, 7 chi so, 2000-2023...")
     out_df, fallback_df = build_dataset()
 
     report_df = build_validation_report(out_df, fallback_df)
 
-    out_csv      = data_dir / "dataset.csv"
-    qa_csv       = data_dir / "wdi_validation_report.csv"
-    fallback_csv = data_dir / "wdi_fallback_audit.csv"
+    # --- Đánh giá tỷ lệ thiếu (cell 1.4) ---
+    series_missing_df, year_missing_df = evaluate_missing(out_df)
+
+    out_csv         = data_dir / "dataset.csv"
+    qa_csv          = data_dir / "wdi_validation_report.csv"
+    fallback_csv    = data_dir / "wdi_fallback_audit.csv"
+    missing_by_series_csv = data_dir / "wdi_missing_by_series.csv"
+    missing_by_year_csv   = data_dir / "wdi_missing_by_year.csv"
 
     out_df.to_csv(out_csv,      index=False, encoding="utf-8-sig")
     report_df.to_csv(qa_csv,    index=False, encoding="utf-8-sig")
     fallback_df.to_csv(fallback_csv, index=False, encoding="utf-8-sig")
+    series_missing_df.to_csv(missing_by_series_csv, index=False, encoding="utf-8-sig")
+    year_missing_df.to_csv(missing_by_year_csv,     index=False, encoding="utf-8-sig")
 
-    print(f"\n[OK] dataset.csv          – {len(out_df)} dong")
-    print(f"[OK] wdi_validation_report.csv  – {len(report_df)} dong (xem cot 'status' de phat hien warn)")
-    print(f"[OK] wdi_fallback_audit.csv   – {len(fallback_df)} dong (chi so duoc giai quyet bang fallback)")
+    print(f"\n[OK] dataset.csv                  – {len(out_df)} dong")
+    print(f"[OK] wdi_validation_report.csv    – {len(report_df)} dong (xem cot 'status' de phat hien warn)")
+    print(f"[OK] wdi_fallback_audit.csv       – {len(fallback_df)} dong (chi so duoc giai quyet bang fallback)")
+    print(f"[OK] wdi_missing_by_series.csv   – {len(series_missing_df)} dong (ty le thieu theo chi so)")
+    print(f"[OK] wdi_missing_by_year.csv      – {len(year_missing_df)} dong (ty le thieu theo nam)")
 
 
 if __name__ == "__main__":
