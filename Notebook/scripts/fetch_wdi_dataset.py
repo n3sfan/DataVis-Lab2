@@ -12,23 +12,24 @@ COUNTRIES = [
     "DEU", "FRA", "GBR", "SWE", "USA", "CAN", "BRA", "MEX", "ZAF", "NGA",
 ]
 
-YEARS = list(range(2000, 2024))          # 2000 – 2023 (recent years, <= 2023)
+YEARS = list(range(2000, 2025))          # 2000 – 2024 (recent years, <= 2024 may be incomplete)
 
 # INDICATOR_GROUPS: concept_name → [primary_code, fallback1, fallback2, ...]
 # Chương trình sẽ dùng code đầu tiên có dữ liệu; ghi nhận fallback ra file audit.
 INDICATOR_GROUPS = {
     # Giáo dục
     "School enrollment, tertiary (% gross)":                     ["SE.TER.ENRR"],
-    # # # Nguồn nhân lực
-    # "Unemployment, total (% of total labor force) (modeled ILO estimate)": ["SL.UEM.TOTL.ZS"],
-    # "Employment in services (% of total employment) (modeled ILO estimate)": ["SL.SRV.EMPL.ZS"],
-    # # Nữ giới trong chính trị
-    # "Proportion of seats held by women in national parliaments (%)":  ["SG.GEN.PARL.ZS"],
-    # # Đầu tư giáo dục & y tế
-    # "Government expenditure on education, total (% of GDP)":          ["SE.XPD.TOTL.GD.ZS", "SE.XPD.TOTL.GB.ZS"],
-    # "Domestic general government health expenditure (% of general government expenditure)": ["SH.XPD.GHED.GE.ZS", "SH.XPD.GHED.GD.ZS", "SH.XPD.CHEX.GD.ZS"],
-    # # Kinh tế
-    # "GDP per capita (current US$)":                              ["NY.GDP.PCAP.CD"],
+    # # Nguồn nhân lực
+    "Unemployment, total (% of total labor force) (modeled ILO estimate)": ["SL.UEM.TOTL.ZS"],
+    "Employment in services (% of total employment) (modeled ILO estimate)": ["SL.SRV.EMPL.ZS"],
+    # Nữ giới trong chính trị
+    "Proportion of seats held by women in national parliaments (%)":  ["SG.GEN.PARL.ZS"],
+    # Đầu tư giáo dục & y tế
+    "Government expenditure on education, total (% of GDP)":          ["SE.XPD.TOTL.GD.ZS", "SE.XPD.TOTL.GB.ZS"],
+    "Domestic general government health expenditure (% of general government expenditure)": ["SH.XPD.GHED.GE.ZS", "SH.XPD.GHED.GD.ZS", "SH.XPD.CHEX.GD.ZS"],
+    "Domestic general government health expenditure (% of GDP)": ["SH.XPD.GHED.GD.ZS"],
+    # Kinh tế
+    "GDP per capita (current US$)":                              ["NY.GDP.PCAP.CD"],
 }
 # ============================================================
 
@@ -268,7 +269,7 @@ def evaluate_missing(out_df):
 
 def main():
     project_root = Path(__file__).resolve().parents[1]
-    data_dir = project_root / "data"
+    data_dir = project_root / "data2"
     data_dir.mkdir(parents=True, exist_ok=True)
 
     print("Bat dau lay du lieu WDI cho 20 quoc gia, 7 chi so, 2000-2023...")
