@@ -1,0 +1,17 @@
+﻿check,value,expected,status
+row_count,1140.0,200,warn
+country_count,114.0,20,warn
+series_count,10.0,10,ok
+year_col_count,25.0,25,ok
+duplicate_rows,0.0,0,ok
+missing_pct::NY.GDP.PCAP.CD,0.25,informational,info
+missing_pct::SE.TER.ENRR,29.19,informational,info
+missing_pct::SE.TER.ENRR.FE,31.72,informational,info
+missing_pct::SE.XPD.TOTL.GD.ZS,29.68,informational,info
+missing_pct::SG.GEN.PARL.ZS,4.81,informational,info
+missing_pct::SH.XPD.GHED.GD.ZS,5.86,informational,info
+missing_pct::SH.XPD.GHED.GE.ZS,5.86,informational,info
+missing_pct::SL.SRV.EMPL.ZS,1.02,informational,info
+missing_pct::SL.TLF.CACT.FE.ZS,1.02,informational,info
+missing_pct::SL.UEM.TOTL.ZS,1.02,informational,info
+fallback_count,0.0,informational,info

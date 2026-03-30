@@ -1,0 +1,11 @@
+﻿Series Code,Series Name,Missing Count,Total Cells,Missing %,Status
+NY.GDP.PCAP.CD,GDP per capita (current US$),7,2850,0.25,OK
+SE.TER.ENRR,"School enrollment, tertiary (% gross)",832,2850,29.19,OK
+SE.TER.ENRR.FE,"School enrollment, tertiary, female (% gross)",904,2850,31.72,OK
+SE.XPD.TOTL.GD.ZS,"Government expenditure on education, total (% of GDP)",846,2850,29.68,OK
+SG.GEN.PARL.ZS,Proportion of seats held by women in national parliaments (%),137,2850,4.81,OK
+SH.XPD.GHED.GD.ZS,Domestic general government health expenditure (% of GDP),167,2850,5.86,OK
+SH.XPD.GHED.GE.ZS,Domestic general government health expenditure (% of general government expenditure),167,2850,5.86,OK
+SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),29,2850,1.02,OK
+SL.TLF.CACT.FE.ZS,"Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)",29,2850,1.02,OK
+SL.UEM.TOTL.ZS,"Unemployment, total (% of total labor force) (modeled ILO estimate)",29,2850,1.02,OK
