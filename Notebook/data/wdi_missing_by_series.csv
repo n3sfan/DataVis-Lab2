@@ -1,0 +1,17 @@
+﻿Series Code,Series Name,Missing Count,Total Cells,Missing %,Status
+NY.GDP.PCAP.CD,GDP per capita (current US$),7,2850,0.25,OK
+SE.TER.ENRR,"School enrollment, tertiary (% gross)",832,2850,29.19,OK
+SE.TER.ENRR.FE,"School enrollment, tertiary, female (% gross)",904,2850,31.72,OK
+SE.XPD.TOTL.GD.ZS,"Government expenditure on education, total (% of GDP)",846,2850,29.68,OK
+SG.GEN.PARL.ZS,Proportion of seats held by women in national parliaments (%),137,2850,4.81,OK
+SH.XPD.GHED.GD.ZS,Domestic general government health expenditure (% of GDP),167,2850,5.86,OK
+SH.XPD.GHED.GE.ZS,Domestic general government health expenditure (% of general government expenditure),167,2850,5.86,OK
+SL.EMP.SMGT.FE.ZS,Female share of employment in senior and middle management (%),1605,2850,56.32,WARN
+SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),29,2850,1.02,OK
+SL.TLF.ADVN.FE.ZS,"Labor force with advanced education, female (% of female working-age population with advanced education)",1309,2850,45.93,WARN
+SL.TLF.BASC.FE.ZS,"Labor force with basic education, female (% of female working-age population with basic education)",1304,2850,45.75,WARN
+SL.TLF.CACT.FE.ZS,"Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)",29,2850,1.02,OK
+SL.TLF.CACT.MA.ZS,"Labor force participation rate, male (% of male population ages 15+) (modeled ILO estimate)",29,2850,1.02,OK
+SL.TLF.INTM.FE.ZS,"Labor force with intermediate education, female (% of female working-age population with intermediate education)",1306,2850,45.82,WARN
+SL.TLF.PART.FE.ZS,"Part time employment, female (% of total female employment)",1431,2850,50.21,WARN
+SL.UEM.TOTL.ZS,"Unemployment, total (% of total labor force) (modeled ILO estimate)",29,2850,1.02,OK
